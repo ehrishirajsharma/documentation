@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "ProjectDiscovery Cloud Platform Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -21,7 +21,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "support@projectdiscovery.io"
     }
   ],
   "topbarCtaButton": {
@@ -53,6 +53,10 @@
   ],
   "navigation": [
     {
+      "group": "Getting Started",
+      "pages": ["getting-started/cloud-platform-overview"]
+    },
+    {
       "group": "Get Started",
       "pages": ["introduction", "quickstart", "development"]
     },
@@ -75,8 +79,9 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "discord": "https://discord.com/invite/projectdiscovery",
+    "twitter": "https://twitter.com/pdiscoveryio",
+    "github": "https://github.com/projectdiscovery",
+    "linkedin": "https://www.linkedin.com/company/projectdiscovery"
   }
 }

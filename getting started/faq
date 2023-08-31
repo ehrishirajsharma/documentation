@@ -1,0 +1,75 @@
+---
+title: 'FAQ`
+---
+## Overview
+
+This FAQ covers questions and answers about the usage of ProjectDiscovery Cloud Platform. Check out the Feature Summary for an overview of product capabilities. 
+
+<AccordionGroup>
+  <Accordion title="Is *ProjectDiscovery Cloud Platform** the same thing as Nuclei Cloud?" icon="circle-info" iconType="solid"> 
+    Yes! ProjectDiscovery Cloud Platform is the updated name for the ProjectDiscovery Enterprise SaaS tool, replacing Nuclei Cloud.
+
+  </Accordion>
+
+  <Accordion title="How do I run a scan? / How do I rerun a scan?" icon="circle-info" iconType="solid"> 
+Scans run on the schedule specified when they are first created and can be modified in the Scan settings. 
+The intervals available are daily, weekly, and monthly.
+
+In addition you can view the scan and use the Scan Now option to immediately queue a new scan.
+  </Accordion>
+
+  <Accordion title="What configuration is required to enable scanning?" icon="circle-info" iconType="solid"> 
+Completing the initial setup for your workspace (adding assets and selecting templates) walks you through creating your first scan for ProjectDiscovery Cloud Platform. 
+Adding scans can be created at any time with any assets you import using new or built-in system templates. 
+
+Note: As part of your initial setup we recommend allowlisting the IP Scan Range provided under **Settings --> Domains --> IP Scan Range** to ensure access to your assets.
+
+  </Accordion>
+
+  <Accordion title="How do I add assets? (What file upload formats do you support?)" icon="circle-info" iconType="solid"> 
+We currently support the upload of a .txt file. This file cannot be larger than 5MB. 
+You can also add assets through a manual import and through Integrations (currently GitHub, GitLab, and an S3 Bucket) 
+  
+  </Accordion>
+
+  <Accordion title="How do I create a new template?" icon="circle-info" iconType="solid"> 
+ProjectDiscovery Cloud Platform includes built-in system templates and supports the addition of new templates and template groups. 
+
+ - To learn more about creating individual templates, review the documentation on creating templates. 
+ - New template groups can be created using any templates that are in your ProjectDiscovery Cloud Platform workspace. 
+
+ </Accordion>
+
+ <Accordion title="How do I delete templates, scans, assets?" icon="circle-info" iconType="solid"> 
+Scans can be deleted individually from the settings option for the selected scan. 
+Assets can be deleted from the Asset Library by selecting the box next to the individual asset name. 
+ 
+ </Accordion>
+
+ <Accordion title="How do I change settings for an existing scan?" icon="circle-info" iconType="solid"> 
+To change the settings for an existing scan, click on the scan settings option next to the Scan name.
+This allows you to change the frequency of scans, to add or remove asset groups, and add or remove template groups. 
+
+ </Accordion>
+
+ <Accordion title="Can I create a new workspace?" icon="circle-info" iconType="solid"> 
+At present, customers will typically be working from a single workspace. If a new workspace is required reach out to us for assistance. 
+
+ </Accordion>
+
+ <Accordion title="Does ProjectDiscovery Cloud Platform remediate vulnerabilities?" icon="circle-info" iconType="solid">
+ProjectDiscovery Cloud Platform capabilities are focused on rapidly detecting assets and identifying vulnerabilities across your attack surface to 
+help facilitate remediation for any issues identified through scanning. Some individual vulnerabilities provide recommended remediation steps. 
+
+- Check out the Feature Summary page for more information on capabilities.
+ </Accordion>
+
+<Accordion title="I lost my password. How do I change my password?" icon="circle-info" iconType="solid">
+Use the `Forgot Password?’ option that is available on the login page. 
+If you still have issues accessing your account, reach out to support@projectdiscovery.io.
+
+<Accordion title="How long does ProjectDiscovery Cloud Platform store my scanned data? (How/where is it stored?)" icon="circle-info" iconType="solid"> 
+Any data that is imported is stored securely in a US-based cloud region and is currently retained indefinitely.
+ </Accordion>
+
+</AccordionGroup>
