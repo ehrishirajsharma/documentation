@@ -54,11 +54,11 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["getting-started/overview"]
+      "pages": ["introduction","getting-started/overview"]
     },
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["quickstart", "development"]
     },
     {
       "group": "Essentials",
