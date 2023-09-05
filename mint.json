@@ -60,6 +60,10 @@
       "group": "Get Started",
       "pages": ["quickstart", "development"]
     },
+     {
+      "group": "Administration",
+      "pages": ["settings/settings-and-administration"]
+    },
     {
       "group": "Essentials",
       "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
