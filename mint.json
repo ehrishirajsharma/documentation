@@ -53,8 +53,8 @@
   ],
   "navigation": [
     {
-      "group": "Getting Started",
-      "pages": ["getting-started/introduction","getting-started/overview"]
+      "group": "ProjectDiscovery Cloud Platform",
+      "pages": ["projectdiscovery-cloud-platform/introduction","projectdiscovery-cloud-platform/overview","projectdiscovery-cloud-platform/faq", "projectdiscovery-cloud-platform/getting-started" ]
     },
     {
       "group": "Get Started",
