@@ -7,10 +7,3 @@ icon: 'gear'
 This page shows the Settings available in ProjectDiscovery Cloud Platform. It includes details about the main Settings Page and subpages.
 
 <Tip>If you have questions or issues use the Help & Support option in ProjectDiscovery Cloud Platform (chatbot) or reach out through support@projectdiscovery.io.</Tip>
-
-## Settings
-
-Settings are available from the main navigation menu.
-
-<Frame caption="Settings">
- <img height="200" src="/images/SettingsPage-GA.png" />
