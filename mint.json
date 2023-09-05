@@ -62,7 +62,7 @@
     },
      {
       "group": "Administration",
-      "pages": ["administration/settings-and-administration"]
+      "pages": ["administration/settings"]
     },
     {
       "group": "Essentials",
