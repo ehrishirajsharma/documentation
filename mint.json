@@ -65,10 +65,15 @@
         "projectdiscovery-cloud-platform/introduction",
         "projectdiscovery-cloud-platform/overview",
         "projectdiscovery-cloud-platform/faq2", 
-        "projectdiscovery-cloud-platform/onboarding"]
-      {
+        "projectdiscovery-cloud-platform/onboarding"
+      ]
+    },
+    {
       "group": "Administration",
-      "pages": ["administration/settings"]
+      "pages": [
+        "administration/settings"
+      ]
+    }
    ],
   "footerSocials": {
     "discord": "https://discord.com/invite/projectdiscovery",
