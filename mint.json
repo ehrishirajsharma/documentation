@@ -33,13 +33,13 @@
   },
   "tabs": [
     {
-      "name": "Nuclei",
-      "url": "nuclei"
+      "name": "Platform",
+      "url": "projectdiscovery-cloud-platform"
     },
     {
-      "name": "Platform",
-      "url": "cloud-platform"
-    }
+      "name": "Nuclei",
+      "url": "nuclei"
+    }  
   ],
   "anchors": [
     {
