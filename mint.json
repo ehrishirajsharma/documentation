@@ -65,34 +65,16 @@
         "projectdiscovery-cloud-platform/introduction",
         "projectdiscovery-cloud-platform/overview",
         "projectdiscovery-cloud-platform/faq2", 
-        "projectdiscovery-cloud-platform/onboarding"]
+        "projectdiscovery-cloud-platform/onboarding"
+      ]
     },
     {
-      "group": "Get Started",
-      "pages": ["quickstart", "development"]
-    },
-     {
       "group": "Administration",
-      "pages": ["administration/settings"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "administration/settings"
       ]
     }
-  ],
+   ],
   "footerSocials": {
     "discord": "https://discord.com/invite/projectdiscovery",
     "twitter": "https://twitter.com/pdiscoveryio",
