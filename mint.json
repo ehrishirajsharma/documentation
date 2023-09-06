@@ -60,6 +60,12 @@
   ],
   "navigation": [
     {
+      "group":"Welcome to the Docs"
+      "pages": [
+        "welcome/introduction"
+      ]
+    }
+    {
       "group": "ProjectDiscovery Cloud Platform",
       "pages": [
         "projectdiscovery-cloud-platform/introduction",
