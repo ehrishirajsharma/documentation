@@ -63,7 +63,7 @@
     },
     {
       "group": "Administration",
-      "pages": ["administration/settings"]
+      "pages": ["projectdiscovery-cloud-platform/administration/settings"]
     },
     {
       "group": "Get Started",
