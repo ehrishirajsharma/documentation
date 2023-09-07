@@ -57,6 +57,10 @@
   ],
   "navigation": [
     {
+      "group": "Get Started",
+      "pages": ["introduction", "quickstart", "development"]
+    },
+    {
       "group": "ProjectDiscovery Cloud Platform",
       "pages": [
         "projectdiscovery-cloud-platform/introduction",
@@ -68,10 +72,6 @@
     {
       "group": "Administration",
       "pages": ["projectdiscovery-cloud-platform/administration/settings"]
-    },
-    {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
     },
     {
       "group": "Essentials",
