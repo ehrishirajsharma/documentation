@@ -56,11 +56,7 @@
     }
   ],
   "navigation": [
-    {
-      "group":"Welcome"
-      "pages": ["welcome/introduction"]
-    },
-    {
+   {
       "group": "ProjectDiscovery Cloud Platform",
       "pages": [
         "projectdiscovery-cloud-platform/introduction",
