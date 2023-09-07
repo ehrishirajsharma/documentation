@@ -27,6 +27,16 @@
   "topbarCtaButton": {
     "name": "Login",
     "url": "https://cloud.projectdiscovery.io"
+  },
+  "tabs": [
+    {
+      "name":"Welcome to the Docs"
+      "url": "welcome"
+    },
+    {
+      "name":"Platform"
+      "url": "projectdiscovery-cloud-platform"
+    }
   ],
   "anchors": [
     {
