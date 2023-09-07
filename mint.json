@@ -28,10 +28,11 @@
     "name": "Login",
     "url": "https://cloud.projectdiscovery.io"
   },
-  "primaryTab": {
-    "name": "Welcome"
-  },
   "tabs": [
+     {
+      "name": "Welcome",
+      "url": "welcome"
+    },
     {
       "name": "Platform",
       "url": "projectdiscovery-cloud-platform"
