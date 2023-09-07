@@ -78,7 +78,7 @@
     {
       "group": "Administration",
       "pages": [
-        "projectdiscovery/administration/settings"
+        "projectdiscovery-cloud-plaform/administration/settings"
       ]
     }
    ],
