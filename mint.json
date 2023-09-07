@@ -32,12 +32,8 @@
     {
       "name": "API Reference",
       "url": "api-reference"
-    },
-    {
-      "name": "Platform",
-      "url": "projectdiscovery-cloud-platform"
-    },
-  ],
+    }
+   ],
   "anchors": [
     {
       "name": "Documentation",
