@@ -29,10 +29,6 @@
     "url": "https://cloud.projectdiscovery.io"
   },
   "tabs": [
-     {
-      "name": "Welcome",
-      "url": "welcome/introduction"
-    },
     {
       "name": "Platform",
       "url": "projectdiscovery-cloud-platform"
