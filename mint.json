@@ -27,16 +27,6 @@
   "topbarCtaButton": {
     "name": "Login",
     "url": "https://cloud.projectdiscovery.io"
-  },
-  "tabs": [
-    {
-      "name": "Platform",
-      "url": "projectdiscovery-cloud-platform"
-    },
-    {
-      "name": "Nuclei",
-      "url": "nuclei"
-    }  
   ],
   "anchors": [
     {
