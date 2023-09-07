@@ -53,6 +53,19 @@
   ],
   "navigation": [
     {
+      "group": "ProjectDiscovery Cloud Platform",
+      "pages": [
+        "projectdiscovery-cloud-platform/introduction",
+        "projectdiscovery-cloud-platform/overview",
+        "projectdiscovery-cloud-platform/faq2", 
+        "projectdiscovery-cloud-platform/onboarding"
+      ]
+    },
+    {
+      "group": "Administration",
+      "pages": ["administration/settings"]
+    },
+    {
       "group": "Get Started",
       "pages": ["introduction", "quickstart", "development"]
     },
