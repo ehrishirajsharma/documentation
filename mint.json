@@ -61,7 +61,7 @@
   ],
   "navigation": [
     {
-      "group":"Welcome to the Docs"
+      "group":"Welcome"
       "pages": ["welcome/introduction"]
     },
     {
