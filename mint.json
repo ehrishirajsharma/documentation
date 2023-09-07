@@ -74,12 +74,11 @@
         "projectdiscovery-cloud-platform/faq2", 
         "projectdiscovery-cloud-platform/onboarding"
       ]
-    },
-    
+    },    
     {
       "group": "Administration",
       "pages": [
-        "administration/settings"
+        "projectdiscovery/administration/settings"
       ]
     }
    ],
