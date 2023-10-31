@@ -95,7 +95,9 @@
       },
       {
          "group": "API Reference",
+         "openapi": ["/openapi.yml"],
          "pages": [
+      
            {
              "group": "Account",
              "pages": [
