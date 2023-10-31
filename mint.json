@@ -1,95 +1,210 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
-    "dark": "#0D001D",
-    "background": {
-      "dark": "#090014"
-    },
-    "anchors": {
-      "from": "#FF7F57",
-      "to": "#9563FF"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
+   "$schema":"https://mintlify.com/schema.json",
+   "name":"Nuclei Documentation",
+   "logo":{
+      "dark":"/logo/dark.png",
+      "light":"/logo/light.png"
+   },
+   "favicon":"/favicon.png",
+   "colors":{
+      "primary":"#3B2FC9",
+      "light":"#6673FF",
+      "dark":"#3B2FC9"
+   },
+   "backgroundImage":"/images/background.png",
+   "topbarCtaButton":{
+      "type":"github",
+      "url":"https://github.com/projectdiscovery/nuclei"
+   },
+   "topAnchor":{
+      "name":"Getting Started",
+      "icon":"circle-play"
+   },
+   "primaryTab":{
+      "name":"Getting Started"
+   },
+   "tabs":[
+      {
+         "name":"Template Guide",
+         "url":"template-guide"
+      },
+      {
+         "name":"Template Example",
+         "url":"template-example"
+      },
+      {
+         "name":"API Reference",
+         "url":"api"
+      },
+      {
+         "name":"Template Editor",
+         "url":"editor"
+      },
+      {
+         "name":"FAQ",
+         "url":"faq"
+      }
    ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Welcome to the Docs",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "ProjectDiscovery Cloud Platform",
-      "pages": [
-        "projectdiscovery-cloud-platform/introduction",
-        "projectdiscovery-cloud-platform/overview",
-        "projectdiscovery-cloud-platform/faq2", 
-        "projectdiscovery-cloud-platform/onboarding"
-      ]
-    },
-    {
-      "group": "Administration",
-      "pages": ["projectdiscovery-cloud-platform/administration/settings"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+   "navigation":[
+      {
+         "group":"Getting Started",
+         "pages":[
+            "getting-started/overview",
+            "getting-started/features",
+            "getting-started/install",
+            "getting-started/running"
+         ]
+      },
+      {
+         "group":"Template Guide",
+         "pages":[
+            "template-guide/introduction",
+            "template-guide/template-details",
+            {
+               "group":"HTTPs",
+               "pages":[
+                  "template-guide/http/base-http",
+                  "template-guide/http/raw-http",
+                  "template-guide/http/http-payloads",
+                  "template-guide/http/http-fuzzing",
+                  "template-guide/http/unsafe-http",
+                  "template-guide/http/advance-http"
+               ]
+            },
+            "template-guide/headless",
+            "template-guide/network",
+            "template-guide/dns",
+            "template-guide/file",
+            "template-guide/javascript",
+            "template-guide/code",
+            "template-guide/multi",
+            "template-guide/flow",
+            {
+               "group":"Operators",
+               "pages":[
+                  "template-guide/operators/matchers",
+                  "template-guide/operators/extractors"
+               ]
+            },
+            "template-guide/oob-testing",
+            "template-guide/helper-functions",
+            "template-guide/variables",
+            "template-guide/preprocessors",
+            "template-guide/workflows"
+         ]
+      },
+      {
+         "group": "API Reference",
+         "pages": [
+           {
+             "group": "Account",
+             "pages": [
+               "api/create-template",
+               "api/create-api-key",
+               "api/delete-user-template",
+               "api/delete-api-key",
+               "api/get-api-key",
+               "api/rotate-api-key",
+               "api/get-user-profile"
+             ]
+           },
+           {
+             "group": "Scans",
+             "pages": [
+               "api/delete-scan",
+               "api/get-scan-result-by-scanid",
+               "api/get-scans-details",
+               "api/import-scan-details",
+               "api/trigger-scan",
+               "api/trigger-retest-scan",
+               "api/scan-results-filters",
+               "api/scan-results-stats"
+             ]
+           },
+           {
+             "group": "Templates",
+             "pages": [
+               "api/generate-ai-template",
+               "api/get-shared-template-data",
+               "api/get-public-templates-list",
+               "api/get-template-data",
+               "api/get-templates-list",
+               "api/share-user-template",
+               "api/update-user-template"
+             ]
+           },
+           {
+             "group": "Assets and Results",
+             "pages": [
+               "api/delete-user-assset",
+               "api/get-assetid-content",
+               "api/get-user-asset",
+               "api/get-user-retest-results",
+               "api/get-user-scans-result",
+               "api/get-users-assets-list",
+               "api/get-users-scans-status",
+               "api/get-vulnerability-report-by-vuln_id",
+               "api/upload-asset"
+                         ]
+           }
+         ]
+       },
+      {
+         "group":"Template Example",
+         "pages":[
+            {
+               "group":"HTTP",
+               "pages":[
+                  "template-example/http/base-http",
+                  "template-example/http/raw-http",
+                  "template-example/http/http-fuzzing",
+                  "template-example/http/http-smuggling",
+                  "template-example/http/http-payloads",
+                  "template-example/http/http-race-conditions"
+               ]
+            },
+            "template-example/dns",
+            "template-example/file",
+            "template-example/headless",
+            "template-example/network",
+            "template-example/workflow",
+            "template-example/helper-functions"
+         ]
+      },
+      {
+         "group":"Editor",
+         "pages":[
+            "editor/introduction",
+            "editor/ai",
+            "editor/share",
+            "editor/shortcut",
+            {
+               "group":"REST API",
+               "pages":[
+                  "editor/api/scan",
+                  "editor/api/generate"
+               ]
+            }
+         ]
+      },
+      {
+         "group":"FAQ",
+         "pages":[
+            "faq/nuclei",
+            "faq/templates",
+            "faq/editor"
+         ]
+      }
+   
+   ],
+   "footerSocials":{
+      "twitter":"https://twitter.com/pdnuclei",
+      "github":"https://github.com/projectdiscovery/nuclei",
+      "discord":"https://discord.com/invite/projectdiscovery"
+   },
+   "feedback":{
+      "thumbsRating":true,
+      "suggestEdit":true
+   }
 }
+ 

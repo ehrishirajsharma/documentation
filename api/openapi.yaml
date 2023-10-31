@@ -1,0 +1,2830 @@
+openapi: 3.1.0
+x-stoplight:
+  id: tofiu9b8qtk9u
+info:
+  title: PDCP API
+  version: '1.0'
+  summary: ProcjectDiscovery Cloud Platform
+  description: templates.nuclei.sh
+servers:
+  - url: 'http://localhost:8080'
+    description: Localhost
+  - url: 'https://template-gpt-backend-dev-6iohq.ondigitalocean.app'
+    description: Development
+  - url: 'https://templates-api.nuclei.sh'
+    description: Production
+paths:
+  /v1/template/user:
+    get:
+      summary: Get template data
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetTemplateResponse'
+        '400':
+          $ref: '#/components/responses/GetTemplateResponse'
+        '401':
+          $ref: '#/components/responses/GetTemplateResponse'
+      operationId: get-v1-template-user
+      x-stoplight:
+        id: wmlzvsnjrhdaq
+      parameters:
+        - $ref: '#/components/parameters/template_id'
+      description: Retrieve template content using template_id and user token
+      security:
+        - Bearer: []
+  /v1/template/user/list:
+    get:
+      summary: Get templates list
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetUserTemplateList'
+        '401':
+          $ref: '#/components/responses/GetTemplateResponse'
+      operationId: get-v1-template-user-list
+      x-stoplight:
+        id: g7nhnurrzrrz6
+      security:
+        - Bearer: []
+      requestBody:
+        content: {}
+      parameters: []
+  /v1/template/user/create:
+    post:
+      summary: Create a user template
+      operationId: post-v1-template-user-create
+      responses:
+        '200':
+          $ref: '#/components/responses/CreateTemplateResponse'
+        '400':
+          $ref: '#/components/responses/CreateTemplateResponse'
+        '401':
+          $ref: '#/components/responses/CreateTemplateResponse'
+      x-stoplight:
+        id: qm12sgkpgkao4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                template:
+                  type: string
+        description: ''
+      security:
+        - Bearer: []
+  /v1/template/user/update:
+    post:
+      summary: Update a user template
+      operationId: post-v1-template-user-update
+      responses:
+        '200':
+          $ref: '#/components/responses/UpdateTemplateResponse'
+        '400':
+          $ref: '#/components/responses/UpdateTemplateResponse'
+        '401':
+          $ref: '#/components/responses/UpdateTemplateResponse'
+        '500':
+          $ref: '#/components/responses/UpdateTemplateResponse'
+      x-stoplight:
+        id: kd052bnsmyw8z
+      security:
+        - Bearer: []
+      requestBody:
+        $ref: '#/components/requestBodies/UpdateTemplateRequest'
+  /v1/template/user/generate:
+    post:
+      summary: Generate a AI template
+      operationId: post-v1-template-user-generate
+      responses:
+        '200':
+          $ref: '#/components/responses/GenerateTemplateResponse'
+        '400':
+          $ref: '#/components/responses/GenerateTemplateResponse'
+        '401':
+          $ref: '#/components/responses/GenerateTemplateResponse'
+        '500':
+          $ref: '#/components/responses/GenerateTemplateResponse'
+      x-stoplight:
+        id: qw78gm89f24ql
+      security:
+        - Bearer: []
+      requestBody:
+        $ref: '#/components/requestBodies/GenerateTemplateRequest'
+  /v1/template/user/retest:
+    post:
+      summary: Trigger a retest scan
+      operationId: post-v1-template-user-retest
+      responses:
+        '200':
+          $ref: '#/components/responses/PostRetestTemplateResponse'
+        '400':
+          $ref: '#/components/responses/PostRetestTemplateResponse'
+        '401':
+          $ref: '#/components/responses/PostRetestTemplateResponse'
+      x-stoplight:
+        id: aihaevf1i1i70
+      requestBody:
+        $ref: '#/components/requestBodies/RetestTemplateRequest'
+      security:
+        - Bearer: []
+      description: ''
+    get:
+      summary: Get user retest results
+      operationId: get-v1-template-user-retest
+      responses:
+        '200':
+          $ref: '#/components/responses/GetRetestResultsResponse'
+        '401':
+          $ref: '#/components/responses/GetRetestResultsResponse'
+      x-stoplight:
+        id: 1blviftqbhg11
+      description: 'Get user retest results '
+      security:
+        - Bearer: []
+    parameters: []
+  /v1/template/user/share:
+    post:
+      summary: Share a user template
+      operationId: post-v1-template-user-share
+      responses:
+        '200':
+          $ref: '#/components/responses/ShareTemplateResponse'
+        '400':
+          description: Bad Request
+        '401':
+          $ref: '#/components/responses/ShareTemplateResponse'
+        '404':
+          $ref: '#/components/responses/ShareTemplateResponse'
+      x-stoplight:
+        id: zaiz7isquc3w2
+      security:
+        - Bearer: []
+      requestBody:
+        $ref: '#/components/requestBodies/ShareTemplateRequest'
+    get:
+      summary: Get a shared template data
+      operationId: get-v1-template-user-share
+      responses:
+        '200':
+          $ref: '#/components/responses/GetSharedTemplateResponse'
+        '400':
+          $ref: '#/components/responses/GetSharedTemplateResponse'
+        '401':
+          $ref: '#/components/responses/GetSharedTemplateResponse'
+        '404':
+          $ref: '#/components/responses/GetSharedTemplateResponse'
+      x-stoplight:
+        id: aitttb1sef95q
+      security:
+        - Bearer: []
+      parameters:
+        - $ref: '#/components/parameters/template_id'
+        - $ref: '#/components/parameters/user_name'
+  /v1/template/user/share/status:
+    get:
+      summary: Get template share status
+      tags: []
+      responses: {}
+      operationId: get-v1-template-user-share-status
+      x-stoplight:
+        id: yubikeldmjd5i
+      security:
+        - Bearer: []
+      parameters:
+        - $ref: '#/components/parameters/template_id'
+        - $ref: '#/components/parameters/user_name'
+  /v1/template/user/profile:
+    get:
+      summary: Get user profile
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetUserProfileResponse'
+        '401':
+          $ref: '#/components/responses/GetUserProfileResponse'
+        '404':
+          $ref: '#/components/responses/GetUserProfileResponse'
+      operationId: get-v1-template-user-profile
+      x-stoplight:
+        id: gijvuqtlav1ju
+      security:
+        - Bearer: []
+  /v1/template/user/delete:
+    delete:
+      summary: Delete a user template
+      operationId: delete-v1-template-user-delete
+      responses:
+        '200':
+          $ref: '#/components/responses/DeleteTemplateResponse'
+        '401':
+          $ref: '#/components/responses/DeleteTemplateResponse'
+      x-stoplight:
+        id: t1fxary79dohb
+      security:
+        - Bearer: []
+      parameters:
+        - $ref: '#/components/parameters/template_id'
+  /v1/template/public/list:
+    get:
+      summary: Get public templates list
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetPublicTemplateList'
+      operationId: get-v1-template-public-list
+      x-stoplight:
+        id: qgsj9wiwtsst0
+  /v1/template/public/*:
+    get:
+      summary: Get public template data
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Example 1:
+                  value:
+                    id: cypress-web-config
+                    info:
+                      name: Cypress Oxygen Configuration Page - Detect
+                      author: tess
+                      severity: info
+                      description: Cypress Oxygen configuration page was detected.
+                      classification:
+                        cvss-metrics: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N'
+                        cvss-score: 0
+                        cwe-id: CWE-200
+                      metadata:
+                        max-request: 1
+                        verified: true
+                        shodan-query: 'http.title:"PendingInstallVZW - Web Page Configuration"'
+                      tags: 'exposure,cypress,pendinginstallvzw,config'
+                    http:
+                      - method: GET
+                        path:
+                          - '{{BaseURL}}'
+                        matchers-condition: and
+                        matchers:
+                          - type: word
+                            part: body
+                            words:
+                              - PendingInstallVZW - Web Page Configuration
+                              - alt="Cypress Oxygen-3
+                            condition: and
+                          - type: status
+                            status:
+                              - 200
+      operationId: get-v1-template-public-*
+      x-stoplight:
+        id: puqhfpyhv3qls
+  '/v1/template/user/retest/{vuln_id}':
+    parameters:
+      - schema:
+          type: string
+        name: vuln_id
+        in: path
+        required: true
+        description: Vulnerability ID
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetSingleRetestResultResponse'
+        '400':
+          $ref: '#/components/responses/GetSingleRetestResultResponse'
+        '401':
+          $ref: '#/components/responses/GetSingleRetestResultResponse'
+        '403':
+          description: Forbidden
+      operationId: get-v1-template-user-retest-vuln_id
+      x-stoplight:
+        id: lej1r76mjl0y0
+      description: ''
+      security:
+        - Bearer: []
+  /v1/scans:
+    get:
+      summary: Get user's scans status
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetScansStatusResponse'
+        '401':
+          $ref: '#/components/responses/GetScansStatusResponse'
+      operationId: get-v1-scans
+      x-stoplight:
+        id: v2j0elw94f40t
+      description: Get user scans status
+      security:
+        - Bearer: []
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: number of scan-status results to skip
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: number of scan-status results to fetch
+          required: true
+    post:
+      summary: Trigger a scan
+      operationId: post-v1-scans
+      responses:
+        '200':
+          $ref: '#/components/responses/TriggerUserScanResponse'
+        '401':
+          $ref: '#/components/responses/TriggerUserScanResponse'
+        '500':
+          $ref: '#/components/responses/TriggerUserScanResponse'
+      x-stoplight:
+        id: uhihgcncemm6k
+      description: Trigger a scan
+      security:
+        - Bearer: []
+      requestBody:
+        $ref: '#/components/requestBodies/TriggerUserScanRequest'
+  '/v1/scans/{scan_id}':
+    parameters:
+      - schema:
+          type: string
+        name: scan_id
+        in: path
+        required: true
+    get:
+      summary: Get scan's details
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetScanDetailsResponse'
+        '401':
+          $ref: '#/components/responses/GetScanDetailsResponse'
+        '500':
+          $ref: '#/components/responses/GetScanDetailsResponse'
+      operationId: get-v1-scans-scan_id
+      x-stoplight:
+        id: 8qxnlzckk7l7y
+      description: Get details of a scan
+      security:
+        - Bearer: []
+    delete:
+      summary: Delete a scan
+      operationId: delete-v1-scans-scan_id
+      responses:
+        '200':
+          $ref: '#/components/responses/DeleteScansResponse'
+        '401':
+          $ref: '#/components/responses/DeleteScansResponse'
+        '500':
+          $ref: '#/components/responses/DeleteTemplateResponse'
+      x-stoplight:
+        id: 3ncwdcerizoot
+      description: Delete a scan using scanId
+      security:
+        - Bearer: []
+  /v1/scans/results:
+    get:
+      summary: Get user scans result
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetScanResultsResponse'
+        '401':
+          $ref: '#/components/responses/GetScanResultsResponse'
+        '500':
+          $ref: '#/components/responses/GetScanResultsResponse'
+      operationId: get-v1-results
+      x-stoplight:
+        id: cupdmwjv7tjhg
+      description: Get scans results of a user
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          required: true
+          description: number of results to skip
+        - schema:
+            type: integer
+          in: query
+          required: true
+          name: limit
+          description: number of results to get
+        - schema:
+            type: string
+          in: query
+          name: severity
+          description: 'string separated by comma e.g. info,high'
+        - schema:
+            type: string
+          in: query
+          name: search
+          description: search term
+        - schema:
+            type: string
+          in: query
+          name: hosts
+          description: 'comma separated host e.g. hosts=https://example.com,https://x.com'
+        - schema:
+            type: string
+          in: query
+          name: templates
+          description: 'comma separated templates e.g. templates=tech-detect,azure-takeover'
+      security:
+        - Bearer: []
+    parameters: []
+  '/v1/scans/result/{scanId}':
+    get:
+      summary: Get scan result by scanId
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetScanResultsResponse'
+        '500':
+          $ref: '#/components/responses/GetScanResultsResponse'
+        '501':
+          $ref: '#/components/responses/GetScanResultsResponse'
+      operationId: 'get-v1-scans-result-:scanId'
+      x-stoplight:
+        id: j1cro0b3ik40h
+      description: get results of specific scan by id
+      security:
+        - Bearer: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: severity
+          description: 'comma separated severity e.g. severity=info,high'
+        - schema:
+            type: string
+          in: query
+          name: search
+          description: search term
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: 'number of results '
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          required: true
+          description: number of results to skip
+        - schema:
+            type: string
+          in: query
+          name: templates
+          description: 'comma separated templates e.g. templates=tech-detect,azure-takeover'
+        - schema:
+            type: string
+          in: query
+          name: hosts
+          description: 'comma separated host e.g. hosts=https://example.com,https://x.com'
+    parameters:
+      - schema:
+          type: string
+        name: scanId
+        in: path
+        required: true
+        description: scan specific results (by scanId)
+  /v1/scans/retest:
+    get:
+      summary: Get user retest results
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetRetestResultsResponse'
+        '401':
+          $ref: '#/components/responses/GetRetestResultsResponse'
+        '403':
+          $ref: '#/components/responses/GetRetestResultsResponse'
+      operationId: get-v1-scans-retest
+      x-stoplight:
+        id: o6hesbzz2vf2k
+      description: Get user retest results
+      security:
+        - Bearer: []
+    post:
+      summary: Trigger a retest scan
+      operationId: post-v1-scans-retest
+      responses:
+        '200':
+          $ref: '#/components/responses/PostRetestTemplateResponse'
+        '401':
+          $ref: '#/components/responses/PostRetestTemplateResponse'
+        '500':
+          $ref: '#/components/responses/PostRetestTemplateResponse'
+      x-stoplight:
+        id: 7biayhbbfd7kh
+      description: Trigger a retest scan
+      security:
+        - Bearer: []
+      requestBody:
+        $ref: '#/components/requestBodies/RetestTemplateRequest'
+  '/v1/scans/vuln/{vuln_id}':
+    get:
+      summary: Get vulnerability report by vuln_id
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetScansVulnIdResponse'
+        '401':
+          $ref: '#/components/responses/GetScansVulnIdResponse'
+        '500':
+          $ref: '#/components/responses/GetScansVulnIdResponse'
+      operationId: 'get-v1-scans-vuln-:vulnId'
+      x-stoplight:
+        id: b3b30hulajspv
+      description: ''
+      security:
+        - Bearer: []
+      requestBody:
+        content: {}
+    parameters:
+      - schema:
+          type: string
+        name: vuln_id
+        in: path
+        required: true
+        description: vulnerability ID
+  /v1/scans/import:
+    post:
+      summary: Import scan details
+      operationId: post-v1-scans-import
+      responses:
+        '200':
+          $ref: '#/components/responses/ImportScanResponse'
+        '400':
+          $ref: '#/components/responses/ImportScanResponse'
+        '401':
+          $ref: '#/components/responses/ImportScanResponse'
+        '500':
+          $ref: '#/components/responses/ImportScanResponse'
+      x-stoplight:
+        id: zhuyc4xjqdam1
+      description: Import scan details
+      security:
+        - Bearer: []
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+  /v1/assets:
+    get:
+      summary: Get user's assets list
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetAssetsListResponse'
+        '401':
+          $ref: '#/components/responses/GetAssetsListResponse'
+        '500':
+          $ref: '#/components/responses/GetAssetsListResponse'
+      operationId: get-v1-assets
+      x-stoplight:
+        id: 6nzefhg2qw3uq
+      description: ''
+      security:
+        - Bearer: []
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: number of assets to skip
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: number of assets to fetch
+          required: true
+    post:
+      summary: Upload a asset
+      operationId: post-v1-assets
+      responses:
+        '200':
+          $ref: '#/components/responses/UploadAssetResponse'
+        '401':
+          $ref: '#/components/responses/UploadAssetResponse'
+        '500':
+          $ref: '#/components/responses/UploadAssetResponse'
+      x-stoplight:
+        id: lw0yqi26yhye4
+      security:
+        - Bearer: []
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+  '/v1/assets/{asset_Id}':
+    parameters:
+      - schema:
+          type: string
+        name: asset_Id
+        in: path
+        required: true
+    get:
+      summary: Get user asset
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/components/responses/GetUserAssetResponse'
+        '500':
+          $ref: '#/components/responses/GetUserAssetResponse'
+      operationId: get-v1-assets-assetId
+      x-stoplight:
+        id: 19jp2c0utnbxv
+      security:
+        - Bearer: []
+    delete:
+      summary: Delete user assset
+      operationId: delete-v1-assets-asset_Id
+      responses:
+        '200':
+          $ref: '#/components/responses/DeleteAssetResponse'
+        '401':
+          $ref: '#/components/responses/DeleteAssetResponse'
+        '500':
+          $ref: '#/components/responses/DeleteAssetResponse'
+      x-stoplight:
+        id: evc2xdgerdh6c
+      security:
+        - Bearer: []
+  '/v1/assets/{asset_id}/contents':
+    get:
+      summary: Get assetId content
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    x-stoplight:
+                      id: cuwxk29atqdp7
+                required:
+                  - message
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    message: |
+                      {"message":"could not get asset metadata: could not get asset: no rows in result set","status":500}
+                properties:
+                  message:
+                    type: string
+                required:
+                  - message
+      operationId: get-v1-assets-id-contents
+      x-stoplight:
+        id: ka7f6ch33yp20
+      security:
+        - Bearer: []
+    parameters:
+      - schema:
+          type: string
+        name: asset_id
+        in: path
+        required: true
+  '/v1/user/settings/apikey':
+    get:
+      summary: Get the API Key for the user
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '400':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '401':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '500':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+      operationId: get-v1-user-settings-apikey
+      x-stoplight:
+        id: 94gncxfdshz8y
+      description: Get the API Key for the user
+      parameters: []
+      security:
+        - Bearer: []
+    post:
+      summary: Create an API Key for the user
+      operationId: post-v1-user-settings-apikey
+      responses:
+        '201':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '400':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '401':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '500':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+      x-stoplight:
+        id: 79xgpna2vx3kg
+      description: Create an API Key for the user
+      security:
+        - Bearer: []
+    delete:
+      summary: Delete the API Key for the user
+      operationId: delete-v1-user-settings-apikey
+      responses:
+        '200':
+          $ref: '#/components/responses/DeleteUserAPIKeyResponse'
+        '400':
+          $ref: '#/components/responses/DeleteUserAPIKeyResponse'
+        '401':
+          $ref: '#/components/responses/DeleteUserAPIKeyResponse'
+        '500':
+          $ref: '#/components/responses/DeleteUserAPIKeyResponse'
+      x-stoplight:
+        id: 7f9hhhdiom3tn
+      description: Delete the API Key for the user
+      security:
+        - Bearer: []
+  '/v1/user/settings/apikey/rotate':
+    post:
+      summary: Rotate the API Key for the user
+      operationId: post-v1-user-settings-apikey-rotate
+      responses:
+        '200':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '400':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '401':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+        '500':
+          $ref: '#/components/responses/GetUserAPIKeyResponse'
+      x-stoplight:
+        id: olr6yh8u5p273
+      description: Rotate the API Key for the user
+      security:
+        - Bearer: []
+  /v1/scans/results/filters:
+    get:
+      summary: Scan results filters
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetScanResultsFiltersResponse'
+        '401':
+          $ref: '#/components/responses/GetScanResultsFiltersResponse'
+        '500':
+          $ref: '#/components/responses/GetScanResultsFiltersResponse'
+      operationId: get-v1-scans-results-filters
+      x-stoplight:
+        id: 4werd2q1yhrv9
+      description: Get users scan-result filters
+      security:
+        - Bearer: []
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: (Required) The number of items to skip before starting to collect the result set
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: (Required) The numbers of items to return
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: scan_id
+          description: specific scan_id results filters
+        - schema:
+            type: string
+          in: query
+          name: severity
+          description: 'comma separated severity e.g. severities=info,high'
+        - schema:
+            type: string
+          in: query
+          name: templates
+          description: 'comma separated templates e.g. templates=tech-detect,azure-takeover'
+        - schema:
+            type: string
+          in: query
+          name: hosts
+          description: 'comma separated host e.g. hosts=https://example.com,https://x.com'
+        - schema:
+            type: string
+          in: query
+          name: search
+          description: search term
+        - schema:
+            type: string
+          in: query
+          name: type
+          required: true
+          description: type of filter
+  /v1/scans/results/stats:
+    get:
+      summary: Scan results stats
+      tags: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetScanResultStatsResponse'
+        '401':
+          $ref: '#/components/responses/GetScanResultStatsResponse'
+        '500':
+          $ref: '#/components/responses/GetScanResultStatsResponse'
+      operationId: get-v1-scans-results-stats
+      x-stoplight:
+        id: y4xvwvjlwli21
+      description: Get user scan results stats
+      security:
+        - Bearer: []
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          required: true
+          description: (Required) The number of items to skip before starting to collect the result set
+        - schema:
+            type: string
+          in: query
+          name: limit
+          required: true
+          description: (Required) The numbers of items to return
+        - schema:
+            type: string
+          in: query
+          name: hosts
+          description: 'comma separated host e.g. hosts=https://example.com,https://x.com'
+        - schema:
+            type: string
+          in: query
+          name: templates
+          description: 'comma separated templates e.g. templates=tech-detect,azure-takeover'
+        - schema:
+            type: string
+          in: query
+          name: severity
+          description: 'comma separated severity e.g. severities=info,high'
+        - schema:
+            type: string
+          in: query
+          name: search
+          description: search term
+        - schema:
+            type: string
+          in: query
+          name: scan_id
+          description: specific scan_id results filters
+components:
+  schemas: {}
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+    X-API-Key:
+      name: X-API-Key
+      type: apiKey
+      in: header
+  responses:
+    GetTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              prompt:
+                type:
+                  - string
+                  - 'null'
+              message:
+                type: string
+              template:
+                type:
+                  - string
+                  - 'null'
+            required:
+              - message
+        application/xml:
+          schema:
+            type: object
+            properties: {}
+          examples: {}
+    GetUserTemplateList:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    shared_publicly:
+                      type: boolean
+              message:
+                type: string
+            required:
+              - message
+        application/xml:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    shared_publicly:
+                      type: boolean
+              message:
+                type: string
+    CreateTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              status:
+                type: boolean
+              template_id:
+                type:
+                  - string
+                  - 'null'
+            required:
+              - message
+    UpdateTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              status:
+                type: boolean
+              template_id:
+                type:
+                  - string
+                  - 'null'
+            required:
+              - message
+    GenerateTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              template_id:
+                type:
+                  - string
+                  - 'null'
+              message:
+                type: string
+              completion:
+                type:
+                  - string
+                  - 'null'
+              name:
+                type:
+                  - string
+                  - 'null'
+            required:
+              - message
+    ShareTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+    GetSharedTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              template:
+                type:
+                  - string
+                  - 'null'
+              template_name:
+                type:
+                  - string
+                  - 'null'
+              message:
+                type: string
+            required:
+              - message
+    GetUserProfileResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ai_status:
+                type:
+                  - boolean
+                  - 'null'
+              email:
+                type:
+                  - string
+                  - 'null'
+              name:
+                type:
+                  - string
+                  - 'null'
+              message:
+                type: string
+            required:
+              - message
+    DeleteTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              status:
+                type:
+                  - boolean
+                  - 'null'
+            required:
+              - message
+    GetPublicTemplateList:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    templateURL:
+                      type: string
+                    name:
+                      type: string
+            required:
+              - version
+              - data
+    GetRetestResultsResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    matcher_status:
+                      type: boolean
+                      x-stoplight:
+                        id: vxt1s3rxtuhnm
+                    vuln_id:
+                      type: string
+                    target:
+                      type: string
+                    template_url:
+                      type: string
+                    created_at:
+                      type: string
+                      x-stoplight:
+                        id: wg6cb3vo2kmfh
+                    updated_at:
+                      type: string
+                      x-stoplight:
+                        id: y9zzmuuatqz14
+                    scan_id:
+                      type: string
+                      x-stoplight:
+                        id: aj2zcx8zw22i6
+                    event:
+                      type: array
+                      items:
+                        type: object
+                        x-stoplight:
+                          id: cco0qoekinnzb
+                        properties:
+                          template-id:
+                            type: string
+                          Info:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              author:
+                                type: array
+                                items:
+                                  type: string
+                              tags:
+                                type: array
+                                items:
+                                  type: string
+                              severity:
+                                type: string
+                              description:
+                                type: string
+                                x-stoplight:
+                                  id: 6sbulao6joe0h
+                              impact:
+                                type: string
+                                x-stoplight:
+                                  id: 0u93okq2w8f57
+                              remediation:
+                                type: string
+                                x-stoplight:
+                                  id: by2zp34idm34q
+                              reference:
+                                type: array
+                                x-stoplight:
+                                  id: 92je04wazzmyx
+                                items:
+                                  x-stoplight:
+                                    id: alr1y0f7mzyos
+                                  type: string
+                              metadata:
+                                type: object
+                                x-stoplight:
+                                  id: lhrv7jzksx1vl
+                                properties:
+                                  verified:
+                                    type: boolean
+                                    x-stoplight:
+                                      id: sdoucfhzblofq
+                                  max-request:
+                                    type: integer
+                                    x-stoplight:
+                                      id: gqe0tkog8z0bs
+                                  total-request:
+                                    type: integer
+                                    x-stoplight:
+                                      id: 8geid7kub9qvm
+                                  vendor:
+                                    type: string
+                                    x-stoplight:
+                                      id: kqbscqru051ma
+                                  product:
+                                    type: string
+                                    x-stoplight:
+                                      id: zxtvem0mu8m7t
+                                  framework:
+                                    type: string
+                                    x-stoplight:
+                                      id: y6wzectx3afck
+                                  shodan-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: k4vqlkes7mjt7
+                                  fofa-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: iep0bxkwly3je
+                                  censys-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: 9l73k9xjgm9dn
+                                  publicwww-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: si712537cdjzs
+                                  google-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: 7624fg94lfxsr
+                              classification:
+                                type: object
+                                x-stoplight:
+                                  id: kwm7l47852b8a
+                                properties:
+                                  cvss-metrics:
+                                    type: string
+                                    x-stoplight:
+                                      id: hcibrrphs4zdv
+                                  cvss-score:
+                                    type: number
+                                    x-stoplight:
+                                      id: c0xnes2blydbg
+                                  cve-id:
+                                    type: array
+                                    x-stoplight:
+                                      id: bgidsde55z1p2
+                                    items:
+                                      x-stoplight:
+                                        id: dofmhofsts59n
+                                      type: string
+                                  cwe-id:
+                                    type: array
+                                    x-stoplight:
+                                      id: 0y7urqvk2f5bc
+                                    items:
+                                      x-stoplight:
+                                        id: o2kq70rha6cid
+                                      type: string
+                                  epss-score:
+                                    type: number
+                                    x-stoplight:
+                                      id: 0uow16f3uno6l
+                                  epss-percentile:
+                                    type: number
+                                    x-stoplight:
+                                      id: 6168jgvrr336b
+                                  cpe:
+                                    type: string
+                                    x-stoplight:
+                                      id: d0pd4aep467hx
+                          type:
+                            type: string
+                          host:
+                            type: string
+                          request:
+                            type: string
+                          response:
+                            type: string
+                          timestamp:
+                            type: string
+                          matcher-status:
+                            type: boolean
+                          matched-line:
+                            type: array
+                            x-stoplight:
+                              id: 1aom9tv9gz1vn
+                            items:
+                              x-stoplight:
+                                id: 6ryh98q4ofo6b
+                              type: integer
+                          ip:
+                            type: string
+                            x-stoplight:
+                              id: s8by0zgx8725b
+                          matched-at:
+                            type: string
+                            x-stoplight:
+                              id: ekdf80jhiowa9
+                          curl-command:
+                            type: string
+                            x-stoplight:
+                              id: fgftwit5jocjw
+                          matcher-name:
+                            type: string
+                            x-stoplight:
+                              id: 2r2gxpnuivbuq
+                          extracted-results:
+                            type: string
+                            x-stoplight:
+                              id: t6vmnteqbs7xh
+                          template-url:
+                            type: string
+                            x-stoplight:
+                              id: fzequyrnzvfvv
+                          template-path:
+                            type: string
+                            x-stoplight:
+                              id: oex9448524ui4
+                          extractor-name:
+                            type: string
+                            x-stoplight:
+                              id: 0jou4enh1jpgj
+                          path:
+                            type: string
+                            x-stoplight:
+                              id: ljz4e5vvpjzcf
+                    template_id:
+                      type: string
+                      x-stoplight:
+                        id: gl96eipz2bfnc
+                    template_path:
+                      type: string
+                      x-stoplight:
+                        id: jbpqapk1jbis7
+                    template_encoded:
+                      type: string
+                      x-stoplight:
+                        id: fg60ktnf4i4ln
+                    result_type:
+                      type: string
+                      x-stoplight:
+                        id: zag3l00q4jj0t
+                  required:
+                    - matcher_status
+                    - vuln_id
+                    - target
+                    - created_at
+                    - scan_id
+                    - event
+                    - result_type
+            required:
+              - message
+              - results
+        application/xml:
+          schema:
+            type: object
+            properties: {}
+    GetSingleRetestResultResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              results:
+                type: object
+                required:
+                  - matcher_status
+                  - target
+                  - event
+                properties:
+                  matcher_status:
+                    type: boolean
+                    x-stoplight:
+                      id: 5foyklpuqcprx
+                  vuln_id:
+                    type: string
+                  target:
+                    type: string
+                  template_url:
+                    type: string
+                  created_at:
+                    type: string
+                    x-stoplight:
+                      id: kc98pz3gls1sz
+                  updated_at:
+                    type: string
+                    x-stoplight:
+                      id: snxbfrz60a33b
+                  event:
+                    type: array
+                    items:
+                      type: object
+                      x-stoplight:
+                        id: 8m5qxnlpgzsja
+                      properties:
+                        template-id:
+                          type: string
+                        Info:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            author:
+                              type: array
+                              items:
+                                type: string
+                            tags:
+                              type: array
+                              items:
+                                type: string
+                            severity:
+                              type: string
+                            description:
+                              type: string
+                              x-stoplight:
+                                id: vy4i1maay2vng
+                            impact:
+                              type: string
+                              x-stoplight:
+                                id: lcvz1o7mjj4k0
+                            remediation:
+                              type: string
+                              x-stoplight:
+                                id: 12krjcdx8mizh
+                            reference:
+                              type: array
+                              x-stoplight:
+                                id: jtrboxz36uiww
+                              items:
+                                x-stoplight:
+                                  id: 5tzqpb27cy1h0
+                                type: string
+                            classification:
+                              type: object
+                              x-stoplight:
+                                id: c4846pks5286d
+                              properties:
+                                cvss-metrics:
+                                  type: string
+                                  x-stoplight:
+                                    id: pd0w2kdnyf1y9
+                                cvss-score:
+                                  type: number
+                                  x-stoplight:
+                                    id: 6d4b9095istk7
+                                cve-id:
+                                  type: array
+                                  x-stoplight:
+                                    id: fahgdjvhk8oey
+                                  items:
+                                    x-stoplight:
+                                      id: 2xdkznw7pmv72
+                                    type: string
+                                cwe-id:
+                                  type: array
+                                  x-stoplight:
+                                    id: f00dtj5yz64ny
+                                  items:
+                                    x-stoplight:
+                                      id: 9hzuk5rx1101n
+                                    type: string
+                                epss-score:
+                                  type: number
+                                  x-stoplight:
+                                    id: mo3pv05bpmfrz
+                                epss-percentile:
+                                  type: number
+                                  x-stoplight:
+                                    id: idh1zqtxj3co3
+                                cpe:
+                                  type: string
+                                  x-stoplight:
+                                    id: pb8b47gv2fkua
+                            metadata:
+                              type: object
+                              x-stoplight:
+                                id: vq8epnifwsdyr
+                              properties:
+                                verified:
+                                  type: boolean
+                                  x-stoplight:
+                                    id: sfspfl5jefkdb
+                                max-request:
+                                  type: integer
+                                  x-stoplight:
+                                    id: ptarkg0zh26ad
+                                total-request:
+                                  type: integer
+                                  x-stoplight:
+                                    id: gav01mgcffl5k
+                                vendor:
+                                  type: string
+                                  x-stoplight:
+                                    id: b9opj7amzrb14
+                                product:
+                                  type: string
+                                  x-stoplight:
+                                    id: avotozpndbw1x
+                                framework:
+                                  type: string
+                                  x-stoplight:
+                                    id: s9dpdc1zgnknq
+                                shodan-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: 6efuqo3k12uxd
+                                fofa-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: 79fs8vgktcij1
+                                censys-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: 368g743p70dcp
+                                publicwww-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: b0w7osoptxkp3
+                                google-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: gaxbroebe3497
+                        type:
+                          type: string
+                        host:
+                          type: string
+                        request:
+                          type: string
+                        response:
+                          type: string
+                        timestamp:
+                          type: string
+                        matcher-status:
+                          type: boolean
+                        matched-line:
+                          type: array
+                          x-stoplight:
+                            id: nlqfbfjqi5ip4
+                          items:
+                            x-stoplight:
+                              id: n7xfter2eezf6
+                            type: integer
+                        ip:
+                          type: string
+                          x-stoplight:
+                            id: l7fhu0gw876uy
+                        matched-at:
+                          type: string
+                          x-stoplight:
+                            id: zxkdsi9d53kxj
+                        curl-command:
+                          type: string
+                          x-stoplight:
+                            id: yugntkf1bx76l
+                        matcher-name:
+                          type: string
+                          x-stoplight:
+                            id: aw0tdxmffnu5d
+                        extracted-results:
+                          type: string
+                          x-stoplight:
+                            id: 7gv0vmxjq4jp0
+                        template-url:
+                          type: string
+                          x-stoplight:
+                            id: z6uck7pg7n84z
+                        template-path:
+                          type: string
+                          x-stoplight:
+                            id: vivcpdup2gpxt
+                        extractor-name:
+                          type: string
+                          x-stoplight:
+                            id: m4zw5lv1brsue
+                        path:
+                          type: string
+                          x-stoplight:
+                            id: v2lidc59d2xcm
+            required:
+              - message
+              - results
+    GetScansStatusResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scan_id:
+                      type: string
+                      x-stoplight:
+                        id: miffqhegwbw9g
+                    status:
+                      type: string
+                      x-stoplight:
+                        id: jculqknz28eaa
+                    scan_time_elapsed:
+                      type: string
+                      x-stoplight:
+                        id: tybowm6ndyd48
+                    progress:
+                      type: integer
+                      x-stoplight:
+                        id: 9csgmejywwc5c
+                    failure_reason:
+                      type: string
+                      x-stoplight:
+                        id: bn9q7boljczog
+                    created_at:
+                      type: string
+                      x-stoplight:
+                        id: 8vk4h5aihljqo
+                    total_target:
+                      type: integer
+                      x-stoplight:
+                        id: 6xfxdtrp8i6z7
+                    total_scan:
+                      type: integer
+                      x-stoplight:
+                        id: otcf2b27o9vuq
+                    total_template:
+                      type: integer
+                      x-stoplight:
+                        id: h4x4o5gbcu378
+                    severity:
+                      type: object
+                      x-stoplight:
+                        id: zvf8bjh6g16di
+                      properties:
+                        info:
+                          type: integer
+                          x-stoplight:
+                            id: kx822qi00t8p9
+                        ciritcal:
+                          type: integer
+                          x-stoplight:
+                            id: frsezs74zfxot
+                        medium:
+                          type: integer
+                          x-stoplight:
+                            id: 9qvnc30wlyrud
+                        low:
+                          type: integer
+                          x-stoplight:
+                            id: 1q1mzqpr41gr8
+                        high:
+                          type: integer
+                          x-stoplight:
+                            id: lddpjmmu0l9tp
+                        unknown:
+                          type: integer
+                          x-stoplight:
+                            id: bgltucpd98ulk
+        application/xml:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                x-stoplight:
+                  id: hs6arcwk8q8fn
+              data:
+                type: array
+                x-stoplight:
+                  id: u8j4jqhbrede2
+                items:
+                  x-stoplight:
+                    id: 9ovv5r3x9mfy2
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      x-stoplight:
+                        id: 3xp5fy3g20oic
+                    status:
+                      type: string
+                      x-stoplight:
+                        id: ovmj4qj14snrk
+            required:
+              - message
+    TriggerUserScanResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              message:
+                type: string
+            required:
+              - message
+        application/xml:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                x-stoplight:
+                  id: pimxza1y0ofk7
+              id:
+                type: string
+                x-stoplight:
+                  id: niljvilvxli79
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                x-stoplight:
+                  id: 1xxf1dvqcxwkl
+              id:
+                type: string
+                x-stoplight:
+                  id: v5lsncoc1flqa
+            required:
+              - message
+        text/html:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                x-stoplight:
+                  id: gtv3tikt5nnf8
+              id:
+                type: string
+                x-stoplight:
+                  id: zhxsyeb381rdu
+            required:
+              - message
+    GetScanDetailsResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              completed_at:
+                type: string
+              completed_scan:
+                type: integer
+              created_at:
+                type: string
+              progress:
+                type: integer
+              scan_id:
+                type: string
+              scan_time:
+                type: string
+              scan_time_elapsed:
+                type: string
+              status:
+                type: string
+              total_scan:
+                type: integer
+              total_template:
+                type: integer
+              total_target:
+                type: integer
+    DeleteScansResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              ok:
+                type: boolean
+            required:
+              - message
+    GetScanResultsResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              results:
+                type: array
+                x-stoplight:
+                  id: ryg6m94ho7kzz
+                items:
+                  x-stoplight:
+                    id: o3d932zsybl6x
+                  type: object
+                  properties:
+                    scan_id:
+                      type: string
+                      x-stoplight:
+                        id: mi66odbrdoscn
+                    target:
+                      type: string
+                      x-stoplight:
+                        id: gge5c91hwfqqg
+                    template_encoded:
+                      type: string
+                      x-stoplight:
+                        id: orwki5uklhnme
+                    template_url:
+                      type: string
+                      x-stoplight:
+                        id: ju56zr7c99iut
+                    template_path:
+                      type: string
+                      x-stoplight:
+                        id: pvxy92mi7j15m
+                    template_id:
+                      type: string
+                      x-stoplight:
+                        id: rd4qz2m1bt0z6
+                    vuln_id:
+                      type: string
+                      x-stoplight:
+                        id: ybb021tcd8w63
+                    matcher_status:
+                      type: boolean
+                      x-stoplight:
+                        id: 9nb066d86pd9e
+                    created_at:
+                      type: string
+                      x-stoplight:
+                        id: wpoqlezcfxdsx
+                    updated_at:
+                      type: string
+                      x-stoplight:
+                        id: c94astvtnptbq
+                    event:
+                      type: array
+                      x-stoplight:
+                        id: 9jlcs377vxlnb
+                      items:
+                        x-stoplight:
+                          id: ahnosp6odlhjb
+                        type: object
+                        properties:
+                          info:
+                            type: object
+                            x-stoplight:
+                              id: 31ambl88kdftl
+                            properties:
+                              name:
+                                type: string
+                                x-stoplight:
+                                  id: a8oqylwt712g7
+                              author:
+                                type: array
+                                x-stoplight:
+                                  id: x8bc6zsc5fa4r
+                                items:
+                                  x-stoplight:
+                                    id: kjng92cvsu4zv
+                                  type: array
+                                  items: {}
+                              tags:
+                                type: array
+                                x-stoplight:
+                                  id: ox4rilq3gdn9d
+                                items:
+                                  x-stoplight:
+                                    id: x047maoqov9zm
+                                  type: string
+                              severity:
+                                type: string
+                                x-stoplight:
+                                  id: e0664832d65mm
+                              reference:
+                                type: array
+                                x-stoplight:
+                                  id: rbghgdyzxwtb7
+                                items:
+                                  x-stoplight:
+                                    id: v5z8jq1694ppb
+                                  type: string
+                              description:
+                                type: string
+                                x-stoplight:
+                                  id: l7uxedatlrnci
+                              remediation:
+                                type: string
+                                x-stoplight:
+                                  id: fc3n5ohakrjvt
+                              metadata:
+                                type: object
+                                x-stoplight:
+                                  id: e67n9s8x2rmmp
+                                properties:
+                                  vendor:
+                                    type: string
+                                    x-stoplight:
+                                      id: 5a9hz4airvxnx
+                                  product:
+                                    type: string
+                                    x-stoplight:
+                                      id: qpb3b8mer7xb1
+                                  framework:
+                                    type: string
+                                    x-stoplight:
+                                      id: pppi9fvzp4foa
+                                  shodan-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: 6y63jaaobisbk
+                                  censys-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: tyhi2q45pxuuw
+                                  publicwww-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: g6meo45ja5wbb
+                                  google-query:
+                                    type: string
+                                    x-stoplight:
+                                      id: vjdh0jmfr30kg
+                                  verified:
+                                    type: boolean
+                                    x-stoplight:
+                                      id: 7c8xbs5zbkgre
+                                  max-request:
+                                    type: integer
+                                    x-stoplight:
+                                      id: 4i8hwoq8cwb54
+                                  total-request:
+                                    type: integer
+                                    x-stoplight:
+                                      id: r3r314hrmmq0s
+                              classification:
+                                type: object
+                                x-stoplight:
+                                  id: t7du7yl5rwyc4
+                                properties:
+                                  cpe:
+                                    type: string
+                                    x-stoplight:
+                                      id: 8sibgjfrc0aj1
+                                  cve-id:
+                                    type: array
+                                    x-stoplight:
+                                      id: buss6fmmhhi3r
+                                    items:
+                                      x-stoplight:
+                                        id: swov1vxg3yndh
+                                      type: string
+                                  cwe-id:
+                                    type: array
+                                    x-stoplight:
+                                      id: hvznjtaji5ptx
+                                    items:
+                                      x-stoplight:
+                                        id: e3f7das9eayie
+                                      type: string
+                                  cvss-score:
+                                    type: number
+                                    x-stoplight:
+                                      id: ki4304bdaugvd
+                                  epss-score:
+                                    type: number
+                                    x-stoplight:
+                                      id: eqq7ab7jjt33u
+                                  cvss-metrics:
+                                    type: string
+                                    x-stoplight:
+                                      id: y5mtdchxmvq3c
+                                  epss-percentile:
+                                    type: number
+                                    x-stoplight:
+                                      id: 1fg1s3lsrg1y3
+                          ip:
+                            type: string
+                            x-stoplight:
+                              id: okfaj2z153u79
+                          host:
+                            type: string
+                            x-stoplight:
+                              id: pyahwvaga3ool
+                          type:
+                            type: string
+                            x-stoplight:
+                              id: h1g1ukzf9if6x
+                          request:
+                            type: string
+                            x-stoplight:
+                              id: ji1ah8c771w3j
+                          response:
+                            type: string
+                            x-stoplight:
+                              id: kycqbq3uvem9u
+                          timestamp:
+                            type: string
+                            x-stoplight:
+                              id: fqwjlxe7ajxya
+                          matched-at:
+                            type: string
+                            x-stoplight:
+                              id: k7d9vxcfg8dee
+                          template-id:
+                            type: string
+                            x-stoplight:
+                              id: pnkrd4s3v81al
+                          matcher-status:
+                            type: boolean
+                            x-stoplight:
+                              id: va25ibowglaqv
+                          curl-command:
+                            type: string
+                            x-stoplight:
+                              id: we19uyj8vqm0t
+                          extracted-results:
+                            type: string
+                            x-stoplight:
+                              id: 3fc4mqhh5cqon
+                          template-url:
+                            type: string
+                            x-stoplight:
+                              id: gfr8urdedvzdn
+                          template-path:
+                            type: string
+                            x-stoplight:
+                              id: 3f3hgom09vz4i
+                          matcher-name:
+                            type: string
+                            x-stoplight:
+                              id: iinwy76l5gjd7
+                          extractor-name:
+                            type: string
+                            x-stoplight:
+                              id: bx1hhbomt9y9r
+                          path:
+                            type: string
+                            x-stoplight:
+                              id: 4mbkui1l2hu19
+                          matched-line:
+                            type: array
+                            x-stoplight:
+                              id: mwk1f04ms8nuz
+                            items:
+                              x-stoplight:
+                                id: nrgobp4ynfzxp
+                              type: integer
+                    result_type:
+                      type: string
+                      x-stoplight:
+                        id: m8v1hmrmpzevs
+                  required:
+                    - scan_id
+                    - target
+                    - vuln_id
+                    - matcher_status
+                    - created_at
+                    - event
+                    - result_type
+              stats:
+                type: object
+                x-stoplight:
+                  id: nqz92r89nmb3m
+                properties:
+                  total:
+                    type: integer
+                    x-stoplight:
+                      id: e12kmsyri1uut
+              filters:
+                type: object
+                x-stoplight:
+                  id: kei0qoxakp4qm
+            required:
+              - results
+    PostRetestTemplateResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              results:
+                type: object
+                properties:
+                  matcher_status:
+                    type: boolean
+                  retest_count:
+                    type: integer
+                  vuln_id:
+                    type: string
+                  target:
+                    type: string
+                  template_url:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  event:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        host:
+                          type: string
+                        Info:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            author:
+                              type: array
+                              items:
+                                type: string
+                            tags:
+                              type: array
+                              items:
+                                type: string
+                            severity:
+                              type: string
+                            reference:
+                              type: array
+                              items:
+                                type: string
+                            description:
+                              type: string
+                            remediation:
+                              type: string
+                            impact:
+                              type: string
+                              x-stoplight:
+                                id: foco2ad8e5d75
+                            metadata:
+                              type: object
+                              properties:
+                                vendor:
+                                  type: string
+                                  x-stoplight:
+                                    id: wyyul9h5mygjm
+                                product:
+                                  type: string
+                                  x-stoplight:
+                                    id: x8x7ibhji5q6t
+                                max-request:
+                                  type: integer
+                                total-request:
+                                  type: integer
+                                  x-stoplight:
+                                    id: tob2z7rkytc75
+                                framework:
+                                  type: string
+                                  x-stoplight:
+                                    id: pv4vilhyl0z3j
+                                shodan-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: 6htctagxso4rg
+                                fofa-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: 1cfhe877muxxf
+                                censys-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: fs7or413ab72g
+                                publicwww-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: idlr9ztjv8bcu
+                                google-query:
+                                  type: string
+                                  x-stoplight:
+                                    id: svihkqp4nc15x
+                                verified:
+                                  type: boolean
+                                  x-stoplight:
+                                    id: 6eoh2vkhldogs
+                            classification:
+                              type: object
+                              properties:
+                                cpe:
+                                  type: string
+                                cve-id:
+                                  type: array
+                                  items:
+                                    type: string
+                                cwe-id:
+                                  type: array
+                                  items:
+                                    type: string
+                                cvss-score:
+                                  type: number
+                                epss-score:
+                                  type: number
+                                cvss-metrics:
+                                  type: string
+                                epss-percentile:
+                                  type: number
+                        type:
+                          type: string
+                        request:
+                          type: string
+                        response:
+                          type: string
+                        timestamp:
+                          type: string
+                        template-id:
+                          type: string
+                        matcher-status:
+                          type: boolean
+                        ip:
+                          type: string
+                          x-stoplight:
+                            id: 33x8rpkoeduw7
+                        matched-line:
+                          type: array
+                          x-stoplight:
+                            id: 1gbobcl907qkz
+                          items:
+                            x-stoplight:
+                              id: gmq06zb593vtf
+                            type: integer
+                        matched-at:
+                          type: string
+                          x-stoplight:
+                            id: 74fkwk1pnftmf
+                        curl-command:
+                          type: string
+                          x-stoplight:
+                            id: 43ojgqkoevouq
+                        matcher-name:
+                          type: string
+                          x-stoplight:
+                            id: 7btxt87o6exe3
+                        extracted-results:
+                          type: string
+                          x-stoplight:
+                            id: nh68zsvyp46mz
+                        template-url:
+                          type: string
+                          x-stoplight:
+                            id: conl7n78c5yv5
+                        template-path:
+                          type: string
+                          x-stoplight:
+                            id: aggt04kaz4vl0
+                        extractor-name:
+                          type: string
+                          x-stoplight:
+                            id: lol1cxm9hfklr
+                        path:
+                          type: string
+                          x-stoplight:
+                            id: qrio9y4tsk6ge
+    GetScansVulnIdResponse:
+      description: '/scans/vuln/:vuln_id'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              scan_id:
+                type: string
+              target:
+                type: string
+              template_url:
+                type: string
+              vuln_id:
+                type: string
+              matcher_status:
+                type: boolean
+              created_at:
+                type: string
+                x-stoplight:
+                  id: a1p43jrlgqzqk
+              updated_at:
+                type: string
+                x-stoplight:
+                  id: 3py539gsthpzb
+              event:
+                type: object
+                properties:
+                  ip:
+                    type: string
+                  host:
+                    type: string
+                  Info:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      author:
+                        type: array
+                        items:
+                          type: string
+                      tags:
+                        type: array
+                        items:
+                          type: string
+                      severity:
+                        type: string
+                      metadata:
+                        type: object
+                        properties:
+                          max-request:
+                            type: integer
+                          vendor:
+                            type: string
+                            x-stoplight:
+                              id: m5lzwvivwm9g6
+                          product:
+                            type: string
+                            x-stoplight:
+                              id: 71uy1u5yl8fmc
+                          framework:
+                            type: string
+                            x-stoplight:
+                              id: r53w354rkhi82
+                          shodan-query:
+                            type: string
+                            x-stoplight:
+                              id: qg8b8fel7t9rt
+                          fofa-query:
+                            type: string
+                            x-stoplight:
+                              id: l95lr50xhiyu3
+                          censys-query:
+                            type: string
+                            x-stoplight:
+                              id: p2fzkww2uimev
+                          publicwww-query:
+                            type: string
+                            x-stoplight:
+                              id: x98b16ub907rg
+                          google-query:
+                            type: string
+                            x-stoplight:
+                              id: foynuf384mydc
+                          verified:
+                            type: string
+                            x-stoplight:
+                              id: istgcn86b8vty
+                          total-request:
+                            type: integer
+                            x-stoplight:
+                              id: l35cpvet5izyc
+                      classification:
+                        type: object
+                        properties:
+                          cpe:
+                            type: string
+                            x-stoplight:
+                              id: rt17pvzmjbhcp
+                          cve-id:
+                            type: array
+                            x-stoplight:
+                              id: nrm6nls68fkkk
+                            items:
+                              x-stoplight:
+                                id: vgyrx4htwjz0z
+                              type: string
+                          cwe-id:
+                            type: array
+                            x-stoplight:
+                              id: 8dil2qc19q0hq
+                            items:
+                              x-stoplight:
+                                id: l59k2iqodgm82
+                              type: string
+                          cvss-score:
+                            type: number
+                            x-stoplight:
+                              id: zmr5snplvo1o8
+                          epss-score:
+                            type: number
+                            x-stoplight:
+                              id: hfg8lhagl5xa8
+                          epss-percentile:
+                            type: number
+                            x-stoplight:
+                              id: de1nc3nkye70i
+                          cvss-metrics:
+                            type: string
+                            x-stoplight:
+                              id: 1lwkfjuwg2kgo
+                      reference:
+                        type: array
+                        x-stoplight:
+                          id: uwq6fhtep5kqy
+                        items:
+                          x-stoplight:
+                            id: vf63e7a4x8yne
+                          type: string
+                      description:
+                        type: string
+                        x-stoplight:
+                          id: x7gpthhmmgwkb
+                      remediation:
+                        type: string
+                        x-stoplight:
+                          id: ugt1evcknr6ae
+                      impact:
+                        type: string
+                        x-stoplight:
+                          id: oc6ytv9yq0yv4
+                    required:
+                      - name
+                  type:
+                    type: string
+                  request:
+                    type: string
+                  response:
+                    type: string
+                  timestamp:
+                    type: string
+                  matched-at:
+                    type: string
+                  template-id:
+                    type: string
+                  curl-command:
+                    type: string
+                  matcher-status:
+                    type: boolean
+                  matcher-name:
+                    type: string
+                    x-stoplight:
+                      id: wozl25nvy67j5
+                  extracted-results:
+                    type: array
+                    x-stoplight:
+                      id: gyjh78fc122i0
+                    items:
+                      x-stoplight:
+                        id: pbma03f2a54tr
+                      type: string
+                  template-url:
+                    type: string
+                    x-stoplight:
+                      id: nbkwldh4yb0v4
+                  template-path:
+                    type: string
+                    x-stoplight:
+                      id: r8mf7sorfgp05
+                  extractor-name:
+                    type: string
+                    x-stoplight:
+                      id: gc36w9x7imal4
+                  path:
+                    type: string
+                    x-stoplight:
+                      id: hdlmh2zcn6g5q
+                  matched-line:
+                    type: array
+                    x-stoplight:
+                      id: il8sp7j46zp17
+                    items:
+                      x-stoplight:
+                        id: 66ejuondytuch
+                      type: integer
+                required:
+                  - timestamp
+                  - template-id
+              template_encoded:
+                type: string
+                x-stoplight:
+                  id: cj2rjsokb6zym
+              template_path:
+                type: string
+                x-stoplight:
+                  id: h9gyne44pmf5g
+            required:
+              - scan_id
+              - target
+              - vuln_id
+              - matcher_status
+              - created_at
+    ImportScanResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            description: Scan is a single scan object
+            properties:
+              id:
+                type: string
+              message:
+                type: string
+                x-stoplight:
+                  id: lg0q5q4plvw1e
+            required:
+              - id
+              - message
+    GetAssetsListResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    asset_count:
+                      type: integer
+                    asset_id:
+                      type: string
+                    uploaded_at:
+                      type: string
+                  required:
+                    - asset_count
+                    - asset_id
+                    - uploaded_at
+            required:
+              - message
+              - data
+    UploadAssetResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              upload_status:
+                type: string
+              asset_id:
+                type: string
+              uploaded_at:
+                type: string
+            required:
+              - message
+    GetUserAssetResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              asset_count:
+                type: integer
+              asset_id:
+                type: string
+              uploaded_at:
+                type: string
+            required:
+              - message
+    DeleteAssetResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+              - message
+    GetUserAPIKeyResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                x-stoplight:
+                  id: 4wqsmascl2gex
+              api_key:
+                type: string
+                x-stoplight:
+                  id: bg4yt97nln6gz
+                format: uuid
+            required:
+              - message
+              - api_key
+    DeleteUserAPIKeyResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                x-stoplight:
+                  id: qvp6a9stw7h0g
+            required:
+              - message
+    GetScanResultsFiltersResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              data:
+                type: array
+                x-stoplight:
+                  id: vi50uhlfce5kd
+                items:
+                  x-stoplight:
+                    id: zhwhwl5gywzmx
+                  type: object
+                  properties:
+                    value:
+                      type: string
+                      x-stoplight:
+                        id: v2k6t59jpqpa7
+                    count:
+                      type: string
+                      x-stoplight:
+                        id: xjxq1fl97bna4
+                  required:
+                    - value
+                    - count
+            required:
+              - message
+              - data
+    GetScanResultStatsResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              stats:
+                type: object
+                properties:
+                  cves:
+                    type: integer
+                  matched:
+                    type: integer
+                  not_matched:
+                    type: integer
+                  severity:
+                    type: object
+                  total_count:
+                    type: integer
+            required:
+              - message
+  parameters:
+    template_id:
+      name: template_id
+      in: query
+      schema:
+        type: string
+      description: short uuid of requested template
+      required: true
+    user_name:
+      name: user_name
+      in: query
+      required: true
+      schema:
+        type: string
+      description: user name of logged in user
+  requestBodies:
+    UpdateTemplateRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+    CreateTemplateRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              template:
+                type: string
+    GenerateTemplateRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              prompt:
+                type: string
+              model:
+                type: string
+    RetestTemplateRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              template_encoded:
+                type: string
+              target:
+                type: string
+              template_path:
+                type: string
+                x-stoplight:
+                  id: twkjlfb1z4oej
+              template_url:
+                type: string
+                x-stoplight:
+                  id: e223hmla4m942
+              template_id:
+                type: string
+                x-stoplight:
+                  id: 9sh7kiej38trf
+              vuln_id:
+                type: string
+                x-stoplight:
+                  id: xufbe0uxzk24c
+    ShareTemplateRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              template_id:
+                type: string
+              is_public:
+                type: boolean
+    TriggerUserScanRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              targets:
+                type: array
+                items:
+                  type: string
+              templates:
+                type: array
+                items:
+                  type: string
+              assets:
+                type: array
+                x-stoplight:
+                  id: xzvdps14a60jn
+                items:
+                  x-stoplight:
+                    id: 0ggwklamojzz5
+                  type: string
+              private_templates:
+                type: array
+                x-stoplight:
+                  id: d1udnj4howv8t
+                items:
+                  x-stoplight:
+                    id: yol43zbz5g0q3
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      x-stoplight:
+                        id: qdv503gfuqce6
+                    contents:
+                      type: string
+                      x-stoplight:
+                        id: eg5znotq58cj6
+              template_urls:
+                type: array
+                x-stoplight:
+                  id: sv117w12kvp5i
+                items:
+                  x-stoplight:
+                    id: x4norcyzv0yjc
+                  type: string
+              scan_id:
+                type: string
+                x-stoplight:
+                  id: g7cv26w23kiwf
+x-internal: false
